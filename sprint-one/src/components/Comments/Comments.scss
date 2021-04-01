@@ -1,0 +1,66 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.comments {
+
+    &__stream {
+            margin: auto;
+            box-sizing: border-box;
+                @include mobile-large {
+                  padding: 0 $mobile-spacing;
+                }
+                @include tablet {
+                  padding-bottom: 0.5*$desktop-spacing;
+                }
+              }
+              &__container {
+                @include flex-container($spacing: flex-start);
+                border-bottom: 1px solid $grey-med;
+                padding: 1.5*$mobile-spacing 0 10px 0;
+                position: relative;
+                @include mobile-large {
+                  padding: $tablet-spacing;
+                }
+                @include tablet {
+                  padding: 24px 0 6px 0;
+                }
+              }
+              &__block {
+                max-width: 210px;
+                padding-left: $mobile-spacing;
+                @include mobile-large {
+                  width: 100%;
+                  max-width: 400px;
+                }
+                &--name, &--date {
+                  display: inline-block;
+                  vertical-align: middle;
+                  @include tablet {
+                    vertical-align: baseline;
+                    font-size: 1em;
+                  }
+                }
+                &--name {
+                  padding-bottom: 6px;
+                }
+                &--date {
+                  color: $grey-dark;
+                  font-size: 0.8125em;
+                  position: absolute;
+                  right: 16px;
+                 
+                  @include tablet {
+                    position: static;
+                    padding-left: 10px;
+                    font-size: 0.875em;
+                  }
+                }
+                &--comment {
+                  margin-top: 6px;
+                  @include tablet {
+                    margin-top: 0;
+                    line-height: 20px;
+                  }
+                }
+            }
+        }
