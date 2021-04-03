@@ -1,0 +1,17 @@
+// @use '../../styles/global.scss' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.videoList {
+    padding: 1.5*$mobile-spacing $mobile-spacing;
+    &__block{
+    @include flex-container($align: center, $spacing: space-between);
+    padding: 2*$mobile-spacing 0;
+    }
+    &__img {
+        min-width: 120px;
+        max-height: 70px;
+        margin-right: 16px;
+        border-radius: 4px;  
+    }
+}

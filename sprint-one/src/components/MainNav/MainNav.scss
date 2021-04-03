@@ -26,7 +26,6 @@
         margin-bottom: 0;
         &::placeholder {
             padding-left: 25px;
-            
         }
     }  
     &__button {
@@ -37,12 +36,8 @@
           background-color: $blue-hover;
         }
      
-      &::before {
-          background-image: url(../../assets/Icons/Icon-upload.svg);
-          z-index: 5;
-          position: absolute;
-          background-repeat: no-repeat;
-          
+      &--icon {
+          margin-right: 12px;
         }
      } 
     &__avatar {

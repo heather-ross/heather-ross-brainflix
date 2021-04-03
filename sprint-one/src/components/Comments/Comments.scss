@@ -1,9 +1,107 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.comments {
-
-    &__stream {
+input, textarea {
+  width: 224px;
+  padding: 1.25em;
+  margin: 0.5em 0;
+  background-color: $grey-light;
+  border: 1px solid $grey-med;
+  border-radius: 4px;
+  display: block;
+  box-sizing: border-box;
+  font-family: 'Avenir', 'Roboto', sans-serif;
+  resize: none;
+  @include mobile-large {
+      width: 90%;
+  }
+  @include tablet {
+    width: 450px;
+  }
+  @include desktop {
+    width: 420px;
+  }
+  @include desktop-xl {
+    width: 460px;
+  }
+  &:focus {
+    outline: none;
+    border: 2px solid $blue-primary;;
+    padding: 1.15em;
+  }
+  &::placeholder {
+    color: #000; 
+  }
+}
+.comments { 
+  padding: 1em;
+  max-width: 100vw;
+  box-sizing: border-box;
+  
+  &__form-wrap {
+    @include flex-container($spacing: space-between);
+    border-bottom: 1px solid $grey-med;
+    padding: 1em 0;
+    position: relative;
+  
+  }
+  &__form-wrap, &__stream {
+    
+          margin: auto;
+          box-sizing: border-box;
+  
+  }
+  &__counter {
+    font-size: 1em;
+    position: absolute;
+    top: 0;
+    padding-top: 18px;
+  }
+  &__form {
+    width: 80%;
+    padding-top: 32px;
+  
+  }
+  &__avatar {
+    background-image: none;
+    background-color:$grey-med;
+    border-radius: 50%;
+    height: 40px;
+    min-width: 40px;
+    
+  
+    &--form {
+      background-image: url(../../assets/Images/Mohan-muruge.jpg);
+      @include background-img;
+      background-position: left;
+      margin-top: 70px;
+      height: 48px;
+      min-width: 48px;
+      
+  
+    }
+  }
+  &__label {
+    color:$grey-dark;
+    font-weight: 600;
+    margin-top: 1.25em;
+  }
+  &__user-name {
+    height: 48px;
+  }
+  &__add-comment {
+    height: 90px;
+  }
+  &__button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+     
+    &:hover {
+      background-color: #0065AD;
+    }
+  
+  }
+  &__stream {
             margin: auto;
             box-sizing: border-box;
                 @include mobile-large {

@@ -3,7 +3,9 @@
 @use '../../styles/partials/mixins' as *;
 
 .post {
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    padding: $mobile-spacing;
+
     &__header {
         border-bottom: 1px solid $grey-med;
         &--title {
@@ -11,6 +13,7 @@
         }
         &--subtitle {
             font-weight: 600;
+            margin-top: 6px;
         }
     }
     &__content {
