@@ -1,12 +1,13 @@
+import '../../styles/global.scss';
 import Header from '../Header/Header';
 import Comments from '../Comments/Comments';
-import VideoHero from '../VideoHero/VideoHero';
+import HeroVideo from '../HeroVideo/HeroVideo';
 import VideoPost from '../VideoPost/VideoPost';
 import SingleVideo from '../SingleVideo/SingleVideo';
 import heroVideoData from '../../data/video-details.json';
 import listVideosData from '../../data/videos.json';
 import './App.scss';
-import '../../styles/global.scss';
+
 import React from 'react';
 
 class App extends React.Component {
@@ -25,12 +26,12 @@ updateVideo = (videoId) => {
       <>
         <Header />
         <main>
-          <VideoHero currentVideo={this.state.currentVideo}/>
+          <HeroVideo currentVideo={this.state.currentVideo}/>
           <VideoPost currentVideo={this.state.currentVideo}/> 
           <Comments currentVideo={this.state.currentVideo} />
         </main>
         <aside className="videoList">
-            <h5 className="comments__label">NEXT VIDEO</h5>
+            <h5 className="videoList__label">NEXT VIDEO</h5>
                  {this.state.nextVideos.filter(singleVideo => singleVideo.id !== this.state.currentVideo.id)
                  .map(singleVideo => 
                 <SingleVideo 

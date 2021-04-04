@@ -12,12 +12,12 @@ function MainNav() {
         <img className="mainNav__logo" src={logo} alt="logo" />
         </a>
         <form className="mainNav__form">
-         <input className="mainNav__search-input" placeholder="Search..." />
+         <input className="mainNav__search-input" type="search" placeholder="Search..." />
           <button className="mainNav__button">
             <img className="mainNav__button--icon" src={uploadIcon} alt="icon"/>
             UPLOAD
             </button>
-          <div className="mainNav__avatar"></div>
+          <div className="avatar mainNav__avatar-search"></div>
         </form>
       </nav>   
   )

@@ -3,15 +3,49 @@
 @use '../../styles/partials/mixins' as *;
 
 .videoList {
-    padding: 1.5*$mobile-spacing $mobile-spacing;
-    &__block{
+    padding: 2.5*$mobile-spacing $mobile-spacing 0 $mobile-spacing;
+    @include tablet {
+        padding: 0 $tablet-spacing;
+    }
+    &__label {
+        color:$grey-dark;
+        font-weight: 600;
+        margin-bottom: 2.5*$mobile-spacing;
+        @include tablet {
+            margin-bottom: 1.5*$tablet-spacing;
+        }
+    }
+    &__block {
     @include flex-container($align: center, $spacing: space-between);
-    padding: 2*$mobile-spacing 0;
+    margin-bottom: 22px;
+    @include tablet {
+        margin-bottom: 24px;
+        width: 50%;
+        align-items: flex-start;
+        height: 70px;
+      }
     }
     &__img {
         min-width: 120px;
-        max-height: 70px;
+        height: 70px;
         margin-right: 16px;
         border-radius: 4px;  
     }
+    &__textBox {
+        width: 100%;
+        box-sizing: border-box;
+        &--title {
+            @include tablet {
+              font-size: 1.05em;
+              line-height: 1.4em;
+            }
+        }
+        &--channel {
+            @include tablet {
+                margin-top: 5px;
+              }
+        }
+  } 
+    
+      
 }
