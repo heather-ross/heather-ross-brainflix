@@ -18,7 +18,10 @@
     }    
     @include desktop {
       padding: 0 $desktop-side-spacing;
-  }
+    }
+    @include desktop-xl {
+      padding: 0 $desktop-xl-side-spacing;
+    }
     &__logo {
         height: 25px;
         width: 100%;
@@ -40,13 +43,16 @@
         margin-bottom: 0;
         @include tablet {
           position: absolute;
-          width: 250px;
-          right: 9.5*$tablet-spacing;
+          max-width: 250px;
+          right: 9.3*$tablet-spacing;
           top: 6px;
         }
         @include desktop {
           right: 2.25*$desktop-side-spacing;
           top: 6px;
+        }
+        @include desktop-xl {
+          right: 2.1*$desktop-xl-side-spacing;
         }
         &:focus {
           padding: 1.17em;
@@ -60,8 +66,11 @@
         width: 75%;
        margin-top: 8px;
        position: relative;
-       @include tablet {
-        width: 14%;
+       @include mobile-large {
+        max-width: 350px;
+      }
+      @include tablet {
+        width: 102px;
         position: absolute;
         right: 4*$tablet-spacing;
         padding-right: 0;       
@@ -69,7 +78,11 @@
       @include desktop {
         right: 1.45*$desktop-side-spacing;
         top: 6px;
-        width: 8%;
+        width: 100px;
+      }
+      @include desktop-xl {
+        right: 1.4*$desktop-xl-side-spacing;
+        width: 100px;
       }
         &:hover {
           background-color: $blue-hover;
@@ -81,6 +94,9 @@
           @include tablet {
             position: absolute;
             left: 12px;
+          }
+          @include desktop-xl {
+            left: 10px;
           }
         }
      } 
@@ -99,6 +115,9 @@
       }
       @include desktop {
         right: $desktop-side-spacing;
+      }
+      @include desktop-xl {
+        right: $desktop-xl-side-spacing;
       }
     }
     

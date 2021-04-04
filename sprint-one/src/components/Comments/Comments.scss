@@ -12,15 +12,25 @@
     padding-top: 0;
     padding-bottom: $mobile-spacing;
   }
-  
-    @include desktop {
+  @include desktop {
       width: 712px; 
       padding-left: 170px;
     }
   @include desktop-xl {
-    padding: $desktop-spacing $desktop-xl-side-spacing 0.5*$desktop-spacing $desktop-xl-side-spacing;
+    padding-left: $desktop-xl-side-spacing;
   }
-  
+  &__counter {
+    font-size: 1em;
+    position: absolute;
+    top: 0;
+    padding: 4px 0 0 0;
+    @include tablet {
+      left: -$mobile-spacing;
+    }
+    @include desktop-xl {
+      left: 0;
+    }
+  } 
   &__form-wrap {
     @include flex-container($spacing: space-between);
     border-bottom: 1px solid $grey-med;
@@ -40,19 +50,21 @@
       @include tablet {
         max-width: 688px;
       }
+      @include desktop-xl {
+        min-width: 712px;
+      }
   }
-  &__counter {
-    font-size: 1em;
-    position: absolute;
-    top: 0;
-    padding: 4px 0 0 0;
-  }
+  
   &__form {
     padding-top: 18px;
+    @include mobile-large {
+        width: 70%;
+      }
     @include tablet {
       display: flex;
       justify-content: space-around;
       align-items: flex-end;
+      width: 100%;
     }   
     @include desktop-xl {
       margin-right: 50px;
@@ -71,7 +83,11 @@
       margin-top: 52px;
       min-width: 48px;
    }
+   @include desktop {
+     margin-right: 46px;
+   }
     @include desktop-xl {
+      margin-right: 20px;
       margin-left: -20px;
     }
   }
@@ -82,6 +98,9 @@
     @include tablet {
       font-size: 12px;
    } 
+   @include desktop-xl {
+      font-size: 13px;
+   }
   }
   &__input {
     height: 90px;
@@ -91,8 +110,13 @@
       margin-top: 4px;
     } 
     @include desktop {
-      width: 360px;
+      width: 390px;
    } 
+   @include desktop-xl {
+      width: 436px;
+      margin-left: 6px;
+      margin-right: 2px;
+    }
   }
   &__button {
     margin-top: 8px;
@@ -108,21 +132,16 @@
       margin-bottom: 6px;
     }
     @include desktop {
-      width: 145px;
-      right: 1.75em;
+      min-width: 140px;
+      margin-right: 0;
     }
     @include desktop-xl {
-      width: 160px;
-      right: 0;
+      width: 159px;
+      margin-right: 16px;
     }
-  
   }
   &__stream {
             margin: auto;
-            box-sizing: border-box;
-                // @include mobile-large {
-                //   padding: 0 $mobile-spacing;
-                // }
                 @include tablet {
                   padding-bottom: 0.5*$desktop-spacing;
                 }
@@ -136,8 +155,12 @@
                   padding: $tablet-spacing;
                 }
                 @include tablet {
-                  padding: 12px 0 6px 0;
-                 
+                  padding: 12px 0 6px 0; 
+                }
+              }
+              &__container:last-child {
+                @include desktop {
+                  border-bottom: none;
                 }
               }
               &__avatar-comment {
@@ -149,7 +172,7 @@
                   margin-top: 10px;
                }
                @include desktop-xl {
-                 margin-left: -20px;
+                 margin-left: -2px;
                }
               }
               &__block {
@@ -160,8 +183,8 @@
                   max-width: 400px;
                 }
                 &--name, &--date {
-                  display: inline-block;
-                  vertical-align: middle;
+                  display: inline;
+                  // vertical-align: middle;
                   @include tablet {
                     vertical-align: baseline;
                     font-size: 1em;
@@ -170,16 +193,20 @@
                 }
                 &--name {
                   padding-bottom: 6px;
+                  // padding-right: 52px;
                 }
                 &--date {
                   color: $grey-dark;
                   font-size: 0.8125em;
                   position: absolute;
-                  right: 16px;
-                 
-                  @include tablet {
+                  right: 0;
+                  top: 14px;
+                  @include mobile-large {
                     position: static;
                     padding-left: 10px;
+                  }
+                 
+                  @include tablet {
                     font-size: 0.875em;
                   }
                 }
@@ -192,9 +219,12 @@
                   }
                   @include desktop {
                     width: 500px;
-                    font-size: 13px;
-                   
+                    font-size: 13px;  
                  } 
+                  @include desktop-xl {
+                    min-width: 620px;
+                    font-size: 14px;
+                  }
                 }
             }
         }

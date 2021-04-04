@@ -9,7 +9,6 @@
     }
     @include desktop {
         max-width: 712px;
-        // padding: 1.5*$tablet-spacing 0 $tablet-spacing $desktop-side-spacing;
         margin: 0;
         padding-left: 160px;
     }
@@ -46,9 +45,16 @@
         }
         &--icon {
             margin-right: 0.5*$mobile-spacing;
+            @include tablet {
+                margin-right: 7px;
+                margin-left: 24px;
+            }
         }
         &--count {
             margin-right: 1.5*$mobile-spacing;
+            @include tablet {
+                margin-right: 0;
+            }
         }
         &--icon, &--count {
             align-self: center;

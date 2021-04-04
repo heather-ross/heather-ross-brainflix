@@ -1,4 +1,4 @@
-// @use '../../styles/global.scss' as *;
+
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
@@ -10,6 +10,10 @@
     @include desktop {
         padding-right: 80px;
         width: 35%;
+    }
+    @include desktop-xl {
+        padding-right: 96px;
+        width: 30%;
     }
     &__label {
         color:$grey-dark;
@@ -45,9 +49,18 @@
         width: 80%;
         box-sizing: border-box;
         &--title {
+            width: 142px;
+            display: -webkit-box;   
+            -webkit-line-clamp: 2;   
+            -webkit-box-orient: vertical;     
+            overflow: hidden; 
+            @include mobile-large {
+                width: 80%;
+              }
             @include tablet {
-              font-size: 1.05em;
+              font-size: 1em;
               line-height: 1.4em;
+              width: 90%;
             }
         }
         &--channel {

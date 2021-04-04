@@ -3,6 +3,7 @@ import './SingleVideo.scss';
 
 function SingleVideo ({image, title, channel, updateVideo, id}) {
    
+   
         return (
            
            <div className="videoList__block" onClick={()=>(updateVideo(id))}>
