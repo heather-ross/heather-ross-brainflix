@@ -12,9 +12,11 @@
     padding-top: 0;
     padding-bottom: $mobile-spacing;
   }
-  @include desktop {
-    padding: $desktop-spacing 160px 0.5*$desktop-spacing 160px;
-  }
+  
+    @include desktop {
+      width: 712px; 
+      padding-left: 170px;
+    }
   @include desktop-xl {
     padding: $desktop-spacing $desktop-xl-side-spacing 0.5*$desktop-spacing $desktop-xl-side-spacing;
   }
@@ -35,6 +37,9 @@
   &__form-wrap, &__stream {
       margin: auto;
       box-sizing: border-box;
+      @include tablet {
+        max-width: 688px;
+      }
   }
   &__counter {
     font-size: 1em;
@@ -61,7 +66,8 @@
     height: 48px;
     width: 48px;
     @include tablet {
-      margin-left: -15px;
+      margin-left: -34px;
+      margin-right: 16px;
       margin-top: 52px;
       min-width: 48px;
    }
@@ -77,12 +83,15 @@
       font-size: 12px;
    } 
   }
-  &__add-comment {
+  &__input {
     height: 90px;
     @include tablet {
       height: 50px;
-      width: 440px;
+      width: 443px;
       margin-top: 4px;
+    } 
+    @include desktop {
+      width: 360px;
    } 
   }
   &__button {
@@ -96,6 +105,7 @@
       width: 159px;
       margin-left: 16px;
       margin-right: $tablet-spacing;
+      margin-bottom: 6px;
     }
     @include desktop {
       width: 145px;
@@ -110,9 +120,9 @@
   &__stream {
             margin: auto;
             box-sizing: border-box;
-                @include mobile-large {
-                  padding: 0 $mobile-spacing;
-                }
+                // @include mobile-large {
+                //   padding: 0 $mobile-spacing;
+                // }
                 @include tablet {
                   padding-bottom: 0.5*$desktop-spacing;
                 }
@@ -135,7 +145,7 @@
                 height: 40px;
                 min-width: 40px;
                 @include tablet {
-                  margin-left: -15px;
+                  margin-left: -18px;
                   margin-top: 10px;
                }
                @include desktop-xl {
@@ -180,6 +190,11 @@
                     width: 624px;
                     margin-top: 0;
                   }
+                  @include desktop {
+                    width: 500px;
+                    font-size: 13px;
+                   
+                 } 
                 }
             }
         }

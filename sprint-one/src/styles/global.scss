@@ -98,4 +98,13 @@ input, textarea {
   border-radius: 50%;
 }
 
+.flex {
+  @include desktop {
+    display: flex;
+    justify-content: space-evenly;
+    
+    
+  }
+  
+}
 

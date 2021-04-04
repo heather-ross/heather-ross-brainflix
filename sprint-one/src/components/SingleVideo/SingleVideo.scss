@@ -7,12 +7,19 @@
     @include tablet {
         padding: 0 $tablet-spacing;
     }
+    @include desktop {
+        padding-right: 80px;
+        width: 35%;
+    }
     &__label {
         color:$grey-dark;
         font-weight: 600;
         margin-bottom: 2.5*$mobile-spacing;
         @include tablet {
             margin-bottom: 1.5*$tablet-spacing;
+        }
+        @include desktop {
+            padding-top: 40px;
         }
     }
     &__block {
@@ -24,6 +31,9 @@
         align-items: flex-start;
         height: 70px;
       }
+      @include desktop {
+        width: 80%;
+      }
     }
     &__img {
         min-width: 120px;
@@ -32,7 +42,7 @@
         border-radius: 4px;  
     }
     &__textBox {
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
         &--title {
             @include tablet {

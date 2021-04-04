@@ -7,6 +7,12 @@
     @include tablet {
         padding: 1.5*$tablet-spacing $tablet-spacing;
     }
+    @include desktop {
+        max-width: 712px;
+        // padding: 1.5*$tablet-spacing 0 $tablet-spacing $desktop-side-spacing;
+        margin: 0;
+        padding-left: 160px;
+    }
     &__header {
         padding-bottom: 4px;
         border-bottom: 1px solid $grey-med;

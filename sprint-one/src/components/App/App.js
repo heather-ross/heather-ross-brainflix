@@ -25,8 +25,9 @@ updateVideo = (videoId) => {
     return (
       <>
         <Header />
+         <HeroVideo currentVideo={this.state.currentVideo}/>
+        <div className="flex">
         <main>
-          <HeroVideo currentVideo={this.state.currentVideo}/>
           <VideoPost currentVideo={this.state.currentVideo}/> 
           <Comments currentVideo={this.state.currentVideo} />
         </main>
@@ -42,7 +43,8 @@ updateVideo = (videoId) => {
                 id={singleVideo.id}
                 updateVideo={this.updateVideo}/>
                   )} 
-        </aside>      
+        </aside> 
+        </div>     
         </>
     );
   }
