@@ -1,5 +1,4 @@
 import React from 'react'
-import './Header.scss';
 import MainNav from '../MainNav/MainNav';
 
 

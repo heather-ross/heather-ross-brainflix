@@ -3,9 +3,9 @@ import './HeroVideo.scss';
 
 function HeroVideo({currentVideo}) {
     return (
-        <section className="hero">
+      <section className="hero">
         <video className="hero__video" poster={currentVideo.image} controls ></video>
-        </section>
+      </section>
     )
 }
 export default HeroVideo

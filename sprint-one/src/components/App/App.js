@@ -6,8 +6,6 @@ import VideoPost from '../VideoPost/VideoPost';
 import SingleVideo from '../SingleVideo/SingleVideo';
 import heroVideoData from '../../data/video-details.json';
 import listVideosData from '../../data/videos.json';
-import './App.scss';
-
 import React from 'react';
 
 class App extends React.Component {
@@ -25,27 +23,27 @@ updateVideo = (videoId) => {
     return (
       <>
         <Header />
-         <HeroVideo currentVideo={this.state.currentVideo}/>
-        <div className="flex">
+        <HeroVideo currentVideo={this.state.currentVideo}/>
+      <div className="flex">
         <main>
           <VideoPost currentVideo={this.state.currentVideo}/> 
           <Comments currentVideo={this.state.currentVideo} />
         </main>
         <aside className="videoList">
-            <h5 className="videoList__label">NEXT VIDEO</h5>
-                 {this.state.nextVideos.filter(singleVideo => singleVideo.id !== this.state.currentVideo.id)
-                 .map(singleVideo => 
-                <SingleVideo 
-                image={singleVideo.image} 
-                title={singleVideo.title} 
-                channel={singleVideo.channel} 
-                key={singleVideo.id}
-                id={singleVideo.id}
-                updateVideo={this.updateVideo}/>
-                  )} 
+          <h5 className="videoList__label">NEXT VIDEO</h5>
+            {this.state.nextVideos.filter(singleVideo => singleVideo.id !== this.state.currentVideo.id)
+            .map(singleVideo => 
+              <SingleVideo 
+              image={singleVideo.image} 
+              title={singleVideo.title} 
+              channel={singleVideo.channel} 
+              key={singleVideo.id}
+              id={singleVideo.id}
+              updateVideo={this.updateVideo}/>
+            )} 
         </aside> 
-        </div>     
-        </>
+      </div>     
+      </>
     );
   }
 }

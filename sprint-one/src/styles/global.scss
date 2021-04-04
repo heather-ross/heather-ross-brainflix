@@ -97,14 +97,9 @@ input, textarea {
 .avatar {
   border-radius: 50%;
 }
-
 .flex {
   @include desktop {
-    display: flex;
-    justify-content: space-evenly;
-    
-    
-  }
-  
+    @include flex-container($spacing: space-evenly);
+  } 
 }
 
