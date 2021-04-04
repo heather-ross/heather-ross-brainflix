@@ -159,7 +159,7 @@
       padding: $tablet-spacing;
     }
     @include tablet {
-      padding: 12px 0 6px 0;
+      padding: 18px 0 6px 0;
     }
   }
   &__container:last-child {
@@ -171,9 +171,12 @@
     background-color: $grey-med;
     height: 40px;
     min-width: 40px;
+    margin-top: 2px;
     @include tablet {
       margin-left: -18px;
-      margin-top: 10px;
+    }
+    @include desktop {
+      margin-top: 0;
     }
     @include desktop-xl {
       margin-left: -2px;
@@ -216,10 +219,10 @@
       @include tablet {
         line-height: 20px;
         width: 624px;
-        margin-top: 0;
+        margin-top: 10px;
       }
       @include desktop {
-        width: 500px;
+        max-width: 570px;
         font-size: 0.8125em;
       }
       @include desktop-xl {

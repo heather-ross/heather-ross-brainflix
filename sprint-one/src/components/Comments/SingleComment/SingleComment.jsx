@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Comments/Comments.scss';
+// import '../../Comments/Comments.scss';
 
 function SingleComment({currentVideo}) {
     return (
