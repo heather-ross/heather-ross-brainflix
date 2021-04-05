@@ -9,6 +9,7 @@
   @include desktop {
     padding-right: 80px;
     width: 35%;
+    border-left: 1px solid $grey-med;
   }
   @include desktop-xl {
     padding-right: 96px;
