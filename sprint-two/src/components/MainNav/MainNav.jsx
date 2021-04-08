@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainNav.scss';
-import logo from '../../assets/Logo/Logo-brainflix.svg';
-import uploadIcon from '../../assets/Icons/Icon-upload.svg';
+import logo from '../../assets/logo-bf/logo-brainflix.svg';
+import uploadIcon from '../../assets/icons-bf/icon-upload.svg';
 import {Link} from 'react-router-dom';
 
 function MainNav() {

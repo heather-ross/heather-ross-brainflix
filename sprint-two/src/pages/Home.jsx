@@ -43,11 +43,11 @@ render() {
             {this.state.nextVideos.filter(singleVideo => singleVideo.id !== this.state.currentVideo.id)
             .map(singleVideo => 
               <SingleVideo 
+              key={singleVideo.id}
+              id={singleVideo.id}
               image={singleVideo.image} 
               title={singleVideo.title} 
               channel={singleVideo.channel} 
-              key={singleVideo.id}
-              id={singleVideo.id}
               updateVideo={this.updateVideo}/>
             )} 
         </aside> 

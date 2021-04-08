@@ -1,7 +1,7 @@
 import React from 'react'
 import './VideoPost.scss';
-import iconViews from '../../assets/Icons/Icon-views.svg';
-import iconLikes from '../../assets/Icons/Icon-likes.svg';
+import iconViews from '../../assets/icons-bf/icon-views.svg';
+import iconLikes from '../../assets/icons-bf/icon-likes.svg';
 
 function VideoPost({currentVideo}) {
     const videoDate = new Date(currentVideo.timestamp);
