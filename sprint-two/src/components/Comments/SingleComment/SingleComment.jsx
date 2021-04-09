@@ -1,10 +1,10 @@
 import React from 'react';
 // import '../../Comments/Comments.scss';
 
-function SingleComment({currentVideo}) {
+function SingleComment({currentVideoComments}) {
     return (
         <div className="comments__stream">  
-          {currentVideo.comments.map(comment => { 
+          {currentVideoComments.map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (
               <div className="comments__container" key={comment.id}>

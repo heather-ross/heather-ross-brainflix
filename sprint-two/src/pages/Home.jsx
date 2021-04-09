@@ -4,31 +4,50 @@ import Comments from '../components/Comments/Comments';
 import HeroVideo from '../components/HeroVideo/HeroVideo';
 import VideoPost from '../components/VideoPost/VideoPost';
 import SingleVideo from '../components/SingleVideo/SingleVideo';
-import heroVideoData from '../data/video-details.json';
+// import heroVideoData from '../data/video-details.json';
 // import listVideosData from '../data/videos.json';
 
-
 class Home extends React.Component {
+  
     state = { 
-        currentVideo: heroVideoData[0],
-        // nextVideos: listVideosData,
-        nextVideos: [],
+        currentVideoId: null,
+        currentVideo: {},
+        nextVideos: []
     }
-
-    componentDidMount() {
+    componentDidMount = () => {
+      console.log(this.props);
+      console.log('did mount')
         axios.get('https://project-2-api.herokuapp.com/videos?api_key=013226f6-61a5-4220-9634-2e2e331c2789')
-        .then( res => {
-            this.setState({nextVideos: res.data})
-        }) 
-    }
+        .then( res1 => {
+            axios.get(`https://project-2-api.herokuapp.com/videos/${res1.data[0].id}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
+            .then( res2 => { 
+            this.setState({
+              currentVideoId: res2.data.id,
+              currentVideo: res2.data,
+              nextVideos: res1.data
+            })
+          })
+            .catch(err=>{
+              console.error(err);
+            })
+          })
+        }
 
-    updateVideo = (videoId) => {
-      this.setState({
-        currentVideo: heroVideoData.find(video => video.id === videoId),
-        // nextVideos: listVideosData,
+    componentDidUpdate = () => {
+      const id = this.props.match.params.id ? this.props.match.params.id : this.state.currentVideoId;
+      if(id !== this.state.currentVideoId) {
+      axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
+      .then( res => { 
+        console.log('axios inside did Update')
+
+        this.setState({
+          currentVideoId: res.data.id,
+          currentVideo: res.data,
+        })
       })
+      }
     }
-
+  
 render() {
     return (
         <div>
@@ -36,20 +55,14 @@ render() {
         <div className="flex">
         <main>
           <VideoPost currentVideo={this.state.currentVideo}/> 
-          <Comments currentVideo={this.state.currentVideo} />
+          <Comments currentVideoComments={this.state.currentVideo.comments}/>
         </main>
         <aside className="videoList">
           <h5 className="videoList__label">NEXT VIDEO</h5>
-            {this.state.nextVideos.filter(singleVideo => singleVideo.id !== this.state.currentVideo.id)
-            .map(singleVideo => 
               <SingleVideo 
-              key={singleVideo.id}
-              id={singleVideo.id}
-              image={singleVideo.image} 
-              title={singleVideo.title} 
-              channel={singleVideo.channel} 
-              updateVideo={this.updateVideo}/>
-            )} 
+                currentVideoId={this.state.currentVideoId}
+                nextVideos={this.state.nextVideos}
+                props={this.props}/>
         </aside> 
       </div>     
     </div>
