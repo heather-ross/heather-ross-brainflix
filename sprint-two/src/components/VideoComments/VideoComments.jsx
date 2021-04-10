@@ -1,10 +1,12 @@
 import React from 'react';
-// import '../../Comments/Comments.scss';
+import '../Comments/Comments.scss';
 
-function SingleComment({currentVideoComments}) {
+function VideoComments({currentVideo}) {
+    
     return (
-        <div className="comments__stream">  
-          {currentVideoComments.map(comment => { 
+        <div className="comments__stream"> 
+         
+          {currentVideo && currentVideo.map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (
               <div className="comments__container" key={comment.id}>
@@ -20,4 +22,4 @@ function SingleComment({currentVideoComments}) {
         </div>
     )
 }
-export default SingleComment
+export default VideoComments

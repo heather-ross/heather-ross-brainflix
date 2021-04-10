@@ -4,6 +4,7 @@ import iconViews from '../../assets/icons-bf/icon-views.svg';
 import iconLikes from '../../assets/icons-bf/icon-likes.svg';
 
 function VideoPost({currentVideo}) {
+  
     const videoDate = new Date(currentVideo.timestamp);
     return (
         <article className="post">

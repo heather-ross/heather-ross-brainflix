@@ -1,13 +1,14 @@
 import React from 'react';
 import './Comments.scss';
-import SingleComment from './SingleComment/SingleComment';
+import VideoComments from '../VideoComments/VideoComments';
 
-function Comments({currentVideoComments}) {
-  
+
+function Comments({currentVideo}) {
+
     return (
       <section className="comments">
         <div className="comments__form-wrap">
-          {/* <h5 className="comments__counter">{currentVideoComments.length || 0} Comments</h5> */}
+        <h5 className="comments__counter">{currentVideo.length} Comments</h5>
           <div className="avatar comments__avatar-form"></div>
             <form className="comments__form" id="commentForm" method="" name="commentForm">
               <label htmlFor="commentInput">
@@ -17,7 +18,7 @@ function Comments({currentVideoComments}) {
               <button className="comments__button" id="commentBtn" type="submit">COMMENT</button>
             </form>
           </div> 
-          {/* <SingleComment currentVideoComments={currentVideoComments}/> */}
+          {/* <VideoComments currentVideo={currentVideo}/> */}
       </section>
     )
 }
