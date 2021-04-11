@@ -13,7 +13,7 @@ function MainNav() {
         </Link>
         <form className="mainNav__form">
          <input className="mainNav__search-input" type="search" placeholder="Search..." />
-          <Link to="/upload">
+          <Link to="/upload" className="mainNav__button--link">
             <button className="mainNav__button">
             <img className="mainNav__button--icon" src={uploadIcon} alt="icon"/>
             UPLOAD
@@ -26,4 +26,5 @@ function MainNav() {
   )
 }
 export default MainNav;
+
 

@@ -1,12 +1,9 @@
 import React from 'react';
-import './Comments.scss';
-import VideoComments from '../VideoComments/VideoComments';
+import './CommentForm.scss';
 
-
-function Comments({currentVideo}) {
+function CommentForm({currentVideo}) {
 
     return (
-      <section className="comments">
         <div className="comments__form-wrap">
         <h5 className="comments__counter">{currentVideo.length} Comments</h5>
           <div className="avatar comments__avatar-form"></div>
@@ -18,8 +15,6 @@ function Comments({currentVideo}) {
               <button className="comments__button" id="commentBtn" type="submit">COMMENT</button>
             </form>
           </div> 
-          {/* <VideoComments currentVideo={currentVideo}/> */}
-      </section>
     )
 }
-export default Comments
+export default CommentForm

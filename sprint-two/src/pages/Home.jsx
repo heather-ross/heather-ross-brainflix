@@ -1,19 +1,19 @@
 import React from 'react'
 import axios from 'axios';
-import Comments from '../components/Comments/Comments';
+import CommentForm from '../components/CommentForm/CommentForm';
 import VideoComments from '../components/VideoComments/VideoComments';
 import HeroVideo from '../components/HeroVideo/HeroVideo';
 import VideoPost from '../components/VideoPost/VideoPost';
 import SingleVideo from '../components/SingleVideo/SingleVideo';
 
 class Home extends React.Component {
-  
     state = { 
         currentVideoId: null,
         currentVideo: {},
         nextVideos: [],
-        newComment: []
+        newComment: [],
     }
+
     componentDidMount = () => {
         axios.get('https://project-2-api.herokuapp.com/videos?api_key=013226f6-61a5-4220-9634-2e2e331c2789')
         .then( res1 => {
@@ -33,7 +33,7 @@ class Home extends React.Component {
         }
 
     componentDidUpdate = () => {
-      const id = this.props.match.params.id ? this.props.match.params.id : this.state.currentVideoId;
+      const id = this.props.match.params.id ? this.props.match.params.id : this.state.nextVideos[0].id;
       if(id !== this.state.currentVideoId) {
         axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
         .then( res => { 
@@ -42,31 +42,37 @@ class Home extends React.Component {
             currentVideo: res.data,
             newComment: res.data.comments
           })
+          window.scrollTo(0, 0)
+        })
+        .catch(err=>{
+          console.error(err);
         })
       }
     }
   
-render() {
-    return (
-        <div>
-          <HeroVideo currentVideo={this.state.currentVideo}/>
-        <div className="flex">
-        <main>
-          <VideoPost currentVideo={this.state.currentVideo}/> 
-          <Comments currentVideo={this.state.newComment}/>
-          <VideoComments currentVideo={this.state.newComment}/>
-        </main>
-        <aside className="videoList">
-          <h5 className="videoList__label">NEXT VIDEO</h5>
-              <SingleVideo 
-                currentVideoId={this.state.currentVideoId}
-                nextVideos={this.state.nextVideos}
-                props={this.props}/>
-        </aside> 
-      </div>     
-    </div>
-    )
-  }
+    render() {
+        return (
+          <>
+            <HeroVideo currentVideo={this.state.currentVideo}/>
+          <div className="flex">
+            <main>
+              <VideoPost currentVideo={this.state.currentVideo}/>
+              <section className="comments"> 
+                <CommentForm currentVideo={this.state.newComment}/>
+                <VideoComments currentVideo={this.state.newComment}/>
+              </section>  
+            </main>
+            <aside className="videoList">
+              <h5 className="videoList__label">NEXT VIDEO</h5>
+                  <SingleVideo 
+                    currentVideoId={this.state.currentVideoId}
+                    nextVideos={this.state.nextVideos}
+                    props={this.props}/>
+            </aside> 
+          </div>     
+          </>
+        )
+      }
 }
 
 export default Home

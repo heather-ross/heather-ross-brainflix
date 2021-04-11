@@ -15,6 +15,7 @@ class App extends React.Component {
                 <Route path='/' exact component={Home} />
                 <Route path='/upload' exact component={Upload} />
                 <Route path="/video/:id" render={(routerProps)=><Home {...routerProps}/>}/>
+                <Route path="/videos/:id/comments" render={(routerProps)=><Home {...routerProps}/>}/>
               </Switch>
       </>
     );

@@ -1,11 +1,10 @@
 import React from 'react';
-import '../Comments/Comments.scss';
+import '../CommentForm/CommentForm.scss';
 
 function VideoComments({currentVideo}) {
     
     return (
-        <div className="comments__stream"> 
-         
+        <div className="comments__stream">  
           {currentVideo && currentVideo.map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (

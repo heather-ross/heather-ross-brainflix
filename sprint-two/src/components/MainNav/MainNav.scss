@@ -82,6 +82,13 @@
       right: 1.4*$desktop-xl-side-spacing;
       width: 100px;
     }
+    &--link {
+      @include tablet {
+        
+        margin-top: -71.5px;
+        
+      }
+    }
     &:hover {
       background-color: $blue-hover;
     }
