@@ -2,7 +2,7 @@ import React from 'react';
 import './CommentForm.scss';
 
 function CommentForm({currentVideo}) {
-
+   
     return (
         <div className="comments__form-wrap">
         <h5 className="comments__counter">{currentVideo.length} Comments</h5>

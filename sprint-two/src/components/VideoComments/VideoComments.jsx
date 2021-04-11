@@ -22,3 +22,5 @@ function VideoComments({currentVideo}) {
     )
 }
 export default VideoComments
+//function comment component
+// boolean to trigger didUpdate
