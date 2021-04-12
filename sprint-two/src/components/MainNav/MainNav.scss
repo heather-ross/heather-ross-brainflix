@@ -83,10 +83,8 @@
       width: 100px;
     }
     &--link {
-      @include tablet {
-        
+      @include tablet {  
         margin-top: -71.5px;
-        
       }
     }
     &:hover {

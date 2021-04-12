@@ -44,29 +44,31 @@
     height: 70px;
     margin-right: 16px;
     border-radius: 4px;
+    object-fit: cover;
   }
   &__textBox {
     width: 80%;
     box-sizing: border-box;
-    &--title {
-      width: 142px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      @include mobile-large {
-        width: 80%;
-      }
-      @include tablet {
-        font-size: 1em;
-        line-height: 1.4em;
-        width: 90%;
-      }
+  } 
+  &__textBox-title {
+    width: 142px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @include mobile-large {
+      width: 80%;
     }
-    &--channel {
-      @include tablet {
-        margin-top: 5px;
-      }
+    @include tablet {
+      font-size: 1em;
+      line-height: 1.4em;
+      width: 90%;
+    }
+  } 
+  &__textBox-channel {
+    @include tablet {
+      margin-top: 5px;
     }
   }
+  
 }

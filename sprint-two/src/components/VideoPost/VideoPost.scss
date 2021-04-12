@@ -35,33 +35,33 @@
   &__row {
     @include flex-container($align: baseline, $spacing: flex-start);
     padding-bottom: 0.5*$mobile-spacing;
-    &--subtitle {
-      font-weight: 600;
-      margin: 6px 8px 0 0;
-    }
-    &--date {
-      color: $grey-dark;
-      font-size: 0.85em;
-      line-height: 0.85em;
-    }
-    &--icon {
-      margin-right: 0.5*$mobile-spacing;
+  }
+  &__row-subtitle {
+    font-weight: 600;
+    margin: 6px 8px 0 0;
+  }
+  &__row-date {
+    color: $grey-dark;
+    font-size: 0.85em;
+    line-height: 0.85em;
+  }
+  &__row-icon {
+    margin-right: 0.5*$mobile-spacing;
       @include tablet {
         margin-right: 7px;
         margin-left: 24px;
       }
-    }
-    &--count {
-      margin-right: 1.5*$mobile-spacing;
+  }
+  &__row-count {
+    margin-right: 1.5*$mobile-spacing;
       @include tablet {
         margin-right: 0;
       }
-    }
-    &--icon, &--count {
-      align-self: center;
-      font-size: 0.9em;
-      line-height: 0.9em;
-    }
+  }
+  &__row-icon, &__row-count {
+    align-self: center;
+    font-size: 0.9em;
+    line-height: 0.9em;
   }
   &__content {
     padding: 0.5*$mobile-spacing 0 0 0;

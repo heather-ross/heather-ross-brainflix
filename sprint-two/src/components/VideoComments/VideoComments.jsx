@@ -1,5 +1,5 @@
 import React from 'react';
-import '../CommentForm/CommentForm.scss';
+import './VideoComments.scss';
 
 function VideoComments({currentVideo}) {
     
@@ -22,5 +22,3 @@ function VideoComments({currentVideo}) {
     )
 }
 export default VideoComments
-//function comment component
-// boolean to trigger didUpdate

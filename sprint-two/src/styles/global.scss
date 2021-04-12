@@ -95,6 +95,11 @@ input, textarea {
     color: $black-primary; 
     }
 }
+label {
+  color: $grey-dark;
+  font-weight: 600;
+  margin-top: 1.25em;
+}
 .avatar {
   border-radius: 50%;
 }
