@@ -65,12 +65,14 @@
   &__form {
     padding-top: 18px;
     @include mobile-large {
-      width: 70%;
+      width: 100%;
+      margin-left: 20px;
     }
     @include tablet {
       @include flex-container($spacing: space-around);
       align-items: flex-end;
       width: 100%;
+      margin-left: 0;
     }
     @include desktop-xl {
       margin-right: 50px;
@@ -80,11 +82,11 @@
     background-image: url(../../assets/images-bf/mohan-muruge.jpg);
     @include background-img;
     background-position: left;
-    margin-top: 70px;
+    margin-top: 60px;
     height: 48px;
-    width: 48px;
+    min-width: 48px;
     @include tablet {
-      margin: 52px 16px 0 -34px;
+      margin: 65px 16px 0 -34px;
       min-width: 48px;
     }
     @include desktop {

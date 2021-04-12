@@ -40,6 +40,7 @@ class Home extends React.Component {
           this.setState({
             currentVideoId: res.data.id,
             currentVideo: res.data,
+            newComment: res.data.comments
           })
           window.scrollTo(0, 0)
         })
@@ -48,8 +49,8 @@ class Home extends React.Component {
         })
       }
     }
-
-    handleCommentSubmit = (e) => {
+    
+    handleSubmit = (e) => {
       e.preventDefault();
       e.target.reset()
     } 
@@ -64,7 +65,7 @@ class Home extends React.Component {
               <section className="comments"> 
                 <CommentForm 
                   currentVideo={this.state.newComment} 
-                  handleCommentSubmit={this.handleCommentSubmit}/>
+                  handleSubmit={this.handleSubmit}/>
                 <VideoComments 
                   currentVideo={this.state.newComment}/>
               </section>  
@@ -82,3 +83,24 @@ class Home extends React.Component {
       }
 }
 export default Home
+//Comment posting works, but can't get comments to stay on top after page refresh. Leaving this here to revist and fix for Sprint 3
+      // handleSubmit = (e) => {
+      //   e.preventDefault();
+      //   let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
+      //   axios.post(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}/comments?api_key=013226f6-61a5-4220-9634-2e2e331c2789`,addComment)
+      //   .then(()=> { 
+      //       axios.get(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
+      //       .then(res => {
+      //         this.setState({
+      //         newComment: res.data.comments.sort(function(x, y) {
+      //           return y.timestamp - x.timestamp;
+      //           })
+      //         })
+      //       })  
+      //       .catch(err=>{
+      //         console.error(err);
+      //       }) 
+      //       e.target.reset()
+      //     })
+      // }
+
