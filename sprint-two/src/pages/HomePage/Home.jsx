@@ -11,7 +11,6 @@ class Home extends React.Component {
         currentVideoId: null,
         currentVideo: {},
         nextVideos: [],
-        newComment: [],
     }
 
     componentDidMount = () => {
@@ -23,7 +22,6 @@ class Home extends React.Component {
               currentVideoId: res2.data.id,
               currentVideo: res2.data,
               nextVideos: res1.data,
-              newComment: res2.data.comments
             })
           })
             .catch(err=>{
@@ -40,7 +38,6 @@ class Home extends React.Component {
           this.setState({
             currentVideoId: res.data.id,
             currentVideo: res.data,
-            newComment: res.data.comments
           })
           window.scrollTo(0, 0)
         })
@@ -49,11 +46,22 @@ class Home extends React.Component {
         })
       }
     }
-    
-    handleSubmit = (e) => {
-      e.preventDefault();
-      e.target.reset()
-    } 
+  
+      handleSubmit = (e) => {
+        e.preventDefault();
+        let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
+        axios.post(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}/comments?api_key=013226f6-61a5-4220-9634-2e2e331c2789`,addComment)
+            .then(res => {
+              console.log(res)
+              this.setState({
+                currentVideoId: res.data
+              })
+            })  
+            .catch(err=>{
+              console.error(err);
+            }) 
+            e.target.reset()
+          }
     
     render() {
         return (
@@ -64,10 +72,10 @@ class Home extends React.Component {
               <VideoPost currentVideo={this.state.currentVideo}/>
               <section className="comments"> 
                 <CommentForm 
-                  currentVideo={this.state.newComment} 
+                  currentVideo={this.state.currentVideo.comments} 
                   handleSubmit={this.handleSubmit}/>
                 <VideoComments 
-                  currentVideo={this.state.newComment}/>
+                  currentVideo={this.state.currentVideo.comments}/>
               </section>  
             </main>
             <aside className="videoList">
@@ -83,24 +91,3 @@ class Home extends React.Component {
       }
 }
 export default Home
-//Comment posting works, but can't get comments to stay on top after page refresh. Leaving this here to revist and fix for Sprint 3
-      // handleSubmit = (e) => {
-      //   e.preventDefault();
-      //   let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
-      //   axios.post(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}/comments?api_key=013226f6-61a5-4220-9634-2e2e331c2789`,addComment)
-      //   .then(()=> { 
-      //       axios.get(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
-      //       .then(res => {
-      //         this.setState({
-      //         newComment: res.data.comments.sort(function(x, y) {
-      //           return y.timestamp - x.timestamp;
-      //           })
-      //         })
-      //       })  
-      //       .catch(err=>{
-      //         console.error(err);
-      //       }) 
-      //       e.target.reset()
-      //     })
-      // }
-
