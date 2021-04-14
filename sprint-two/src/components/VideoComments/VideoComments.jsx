@@ -5,7 +5,7 @@ function VideoComments({currentVideo}) {
     
     return (
         <div className="comments__stream">  
-          {!!currentVideo && currentVideo.sort(function(x, y) {return y.timestamp - x.timestamp;})
+          {currentVideo && currentVideo.sort(function(x, y) {return y.timestamp - x.timestamp;})
           .map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (

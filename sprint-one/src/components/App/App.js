@@ -1,5 +1,5 @@
 import '../../styles/global.scss';
-import Header from '../Header/Header';
+import MainNav from '../MainNav/MainNav';
 import Comments from '../Comments/Comments';
 import HeroVideo from '../HeroVideo/HeroVideo';
 import VideoPost from '../VideoPost/VideoPost';
@@ -22,7 +22,9 @@ updateVideo = (videoId) => {
   render() {
     return (
       <>
-        <Header />
+        <header>
+          <MainNav />
+        </header>
         <HeroVideo currentVideo={this.state.currentVideo}/>
       <div className="flex">
         <main>

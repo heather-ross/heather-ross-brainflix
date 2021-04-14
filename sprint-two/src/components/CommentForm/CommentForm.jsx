@@ -6,7 +6,7 @@ function CommentForm({currentVideo, handleSubmit}) {
     return (
         <div className="comments__form-wrap">
          
-        <h5 className="comments__counter">{!!currentVideo && currentVideo.length} Comments</h5>
+        <h5 className="comments__counter">{currentVideo && currentVideo.length} Comments</h5>
           <div className="avatar comments__avatar-form"></div>
             <form onSubmit={handleSubmit} className="comments__form" id="commentForm" method="" name="commentForm">
               <label htmlFor="commentInput">
