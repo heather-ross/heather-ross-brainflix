@@ -6,6 +6,7 @@ import HeroVideo from '../../components/HeroVideo/HeroVideo';
 import VideoDetails from '../../components/VideoDetails/VideoDetails';
 import VideoList from '../../components/VideoList/VideoList';
 
+
 class Home extends React.Component {
     state = { 
         currentVideoId: null,
@@ -14,9 +15,9 @@ class Home extends React.Component {
     }
 
     componentDidMount = () => {
-        axios.get('https://project-2-api.herokuapp.com/videos?api_key=013226f6-61a5-4220-9634-2e2e331c2789')
+        axios.get('http://localhost:8080/videos')
         .then( res1 => {
-          axios.get(`https://project-2-api.herokuapp.com/videos/${res1.data[0].id}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
+          axios.get(`http://localhost:8080/videos/${res1.data[0].id}`)
           .then( res2 => { 
             this.setState({
               currentVideoId: res2.data.id,
@@ -33,7 +34,7 @@ class Home extends React.Component {
     componentDidUpdate = () => {
       const id = this.props.match.params.id ? this.props.match.params.id : this.state.nextVideos[0].id;
       if(id !== this.state.currentVideoId) {
-        axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=013226f6-61a5-4220-9634-2e2e331c2789`)
+        axios.get(`http://localhost:8080/videos/${id}`)
         .then( res => { 
           this.setState({
             currentVideoId: res.data.id,
@@ -50,7 +51,7 @@ class Home extends React.Component {
       handleSubmit = (e) => {
         e.preventDefault();
         let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
-        axios.post(`https://project-2-api.herokuapp.com/videos/${this.state.currentVideoId}/comments?api_key=013226f6-61a5-4220-9634-2e2e331c2789`,addComment)
+        axios.post(`http://localhost:8080/videos/${this.state.currentVideoId}/comments`,addComment)
             .then(res => {
               console.log(res)
               this.setState({
