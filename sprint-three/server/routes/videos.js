@@ -14,6 +14,7 @@ router.route('/')
         }
         return singleVideo
     })
+    console.log(videos)
     res.status(200).send(videos)
 })
 
