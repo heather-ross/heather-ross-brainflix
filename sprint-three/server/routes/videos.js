@@ -26,30 +26,20 @@ videoRoute.get('/:videoId', (req, res) => {
 })
 
 videoRoute.post('/', (req, res) => {
-    const { title, image, description, timestamp } = req.body;
-    console.log(req.body)
+    const { title, channel, description } = req.body;
     videoData.push({
         id: uuid.v4(),
         title: title,
-        channel: 'channel', 
-        image: image, 
+        channel: 'Heather Ross', 
+        image: 'http://localhost:8080/images/upload-video-preview.jpg', 
         description: description, 
         views: 0, 
         likes: 0, 
         duration: 'duration', 
-        timestamp: timestamp, 
+        timestamp: Date.now(), 
         comments: [],
     });
     fs.writeFileSync('data/videos.json', JSON.stringify(videoData));
     res.json(videoData)
 })
-// videoRoute.delete('/video', (req, res) => {
-//     const {videoId} = req.body;
-//     const index = videodata.findIndex(video => video.id === videoId);
-//     const deleteVideo = videoData[index];
-//     videoData.splice(index, 1);
-//     res.json(deleteVideo);
-// })
-
-
 module.exports = videoRoute
