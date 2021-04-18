@@ -94,7 +94,8 @@
       margin-right: 12px;
       @include tablet {
         position: absolute;
-        left: 12px;
+        left: 9px;
+        top: 17px;
       }
       @include desktop-xl {
         left: 10px;

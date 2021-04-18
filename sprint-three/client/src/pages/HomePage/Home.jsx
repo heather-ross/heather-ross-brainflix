@@ -13,21 +13,15 @@ class Home extends React.Component {
         currentVideo: {},
         nextVideos: [],
     }
-
     componentDidMount = () => {
         axios.get('http://localhost:8080/videos')
-        .then( res1 => {
-          axios.get(`http://localhost:8080/videos/${res1.data[0].id}`)
-          .then( res2 => { 
-            this.setState({
-              currentVideoId: res2.data.id,
-              currentVideo: res2.data,
-              nextVideos: res1.data,
-            })
+        .then( res => {
+          this.setState({
+            nextVideos: res.data
           })
-            .catch(err=>{
+        })
+          .catch(err=>{
               console.error(err);
-            })
           })
     }
 
@@ -73,10 +67,10 @@ class Home extends React.Component {
               <VideoDetails currentVideo={this.state.currentVideo}/>
               <section className="comments"> 
                 <CommentForm 
-                  currentVideo={this.state.currentVideo.comments} 
+                  commentInput={this.state.currentVideo.comments} 
                   handleSubmit={this.handleSubmit}/>
                 <Comments 
-                  currentVideo={this.state.currentVideo.comments}/>
+                  comments={this.state.currentVideo.comments}/>
               </section>  
             </main>
             <aside className="videoList">

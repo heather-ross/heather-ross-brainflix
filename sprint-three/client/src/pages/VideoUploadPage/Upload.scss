@@ -105,10 +105,17 @@
     @include tablet {
       width: 160px;
     }
-    &--delete {
-      margin-top: 6px;
-      background-color: #FFF;
-      color: $blue-primary;
+  }
+  &__button-delete {
+    margin-top: 6px;
+    background-color: #FFF;
+    color: $blue-primary;
+    @include tablet {
+      margin-right: 4px;
+    }
+    &:hover {
+      color: #FFF;
     }
   }
+  
 }

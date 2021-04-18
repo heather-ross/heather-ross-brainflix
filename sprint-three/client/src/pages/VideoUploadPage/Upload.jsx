@@ -49,7 +49,7 @@ export default class Upload extends Component {
               </label> 
               <div className="uploads__border">         
                 <button className="uploads__button" id="uploadsBtn" type="submit">PUBLISH</button>
-                <button className="uploads__button uploads__button--delete" id="uploadsDeleteBtn" onClick={this.handleDeleteVideo}>CANCEL</button>
+                <button className="uploads__button uploads__button-delete" id="uploadsDeleteBtn" onClick={this.handleDeleteVideo}>CANCEL</button>
               </div>
           </form>
         </div> 

@@ -1,12 +1,12 @@
 import React from 'react';
 import './CommentForm.scss';
 
-function CommentForm({currentVideo, handleSubmit}) {
+function CommentForm({commentInput, handleSubmit}) {
   
     return (
         <div className="comments__form-wrap">
          
-        <h5 className="comments__counter">{currentVideo && currentVideo.length} Comments</h5>
+        <h5 className="comments__counter">{commentInput && commentInput.length} Comments</h5>
           <div className="avatar comments__avatar-form"></div>
             <form onSubmit={handleSubmit} className="comments__form" id="commentForm" method="" name="commentForm">
               <label htmlFor="commentInput">

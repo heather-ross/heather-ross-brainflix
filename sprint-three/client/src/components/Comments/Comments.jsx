@@ -1,11 +1,11 @@
 import React from 'react';
 import './Comments.scss';
 
-function Comments({currentVideo}) {
+function Comments({comments}) {
     
     return (
         <div className="comments__stream">  
-          {currentVideo && currentVideo.sort(function(x, y) {return y.timestamp - x.timestamp;})
+          {comments && comments.sort(function(x, y) {return y.timestamp - x.timestamp;})
           .map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (
