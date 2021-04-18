@@ -13,6 +13,7 @@ class Home extends React.Component {
         currentVideo: {},
         nextVideos: [],
     }
+    
     componentDidMount = () => {
         axios.get('http://localhost:8080/videos')
         .then( res => {
@@ -42,21 +43,10 @@ class Home extends React.Component {
       }
     }
   
-      handleSubmit = (e) => {
-        e.preventDefault();
-        let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
-        axios.post(`http://localhost:8080/videos/${this.state.currentVideoId}/comments`,addComment)
-            .then(res => {
-              console.log(res)
-              this.setState({
-                currentVideoId: res.data
-              })
-            })  
-            .catch(err=>{
-              console.error(err);
-            }) 
-            e.target.reset()
-          }
+    handleSubmit = (e) => {
+      e.preventDefault();
+      e.target.reset()
+    }
     
     render() {
         return (

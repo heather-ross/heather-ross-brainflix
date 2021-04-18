@@ -28,7 +28,6 @@ export default class Upload extends Component {
     this.props.history.push('/');
   };
 
-
     render() {
       return (
       <section className="uploads">
@@ -38,7 +37,7 @@ export default class Upload extends Component {
             <h5 className="uploads__label">VIDEO THUMBNAIL</h5>
             <div className="uploads__thumbnail"></div>
           </label> 
-          <form onSubmit={this.handleAddVideo} ref={form => this.form = form} className="uploads__form" id="uploadsForm" method="post" name="uploadsForm">
+          <form onSubmit={this.handleAddVideo}  className="uploads__form" id="uploadsForm" method="post" name="uploadsForm">
             <label htmlFor="uploadsInput">
               <h5 className="uploads__label">TITLE YOUR VIDEO</h5>
                 <input className="uploads__inputTitle" id="uploadsInputTitle" name="uploadsInputTitle" placeholder="Add a title to your video" required autoComplete="off" />
