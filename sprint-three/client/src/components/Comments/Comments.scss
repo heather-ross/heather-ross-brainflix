@@ -52,7 +52,8 @@
           width: 100%;
           max-width: 400px;
         }
-        &--name, &--date {
+      }
+        &__block-name, &__block-date {
           display: inline; 
           @include tablet {
             vertical-align: baseline;
@@ -60,10 +61,10 @@
             margin-bottom: 0;
           }
         }
-        &--name {
+        &__block-name {
           padding-bottom: 6px; 
         }
-        &--date {
+        &__block-date {
           color: $grey-dark;
           font-size: 0.8125em;
           position: absolute;
@@ -77,7 +78,7 @@
             font-size: 0.875em;
           }
         }
-        &--comment {
+        &__block-comment {
           margin-top: 6px;
           @include tablet {
             line-height: 20px;
@@ -93,7 +94,7 @@
             font-size: 0.875em;
           }
         }
-      }
+      
 
 
 }

@@ -1,13 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
+import thumbnail from '../../assets/images-bf/upload-video-preview.jpg';
 import './Upload.scss';
+
 export default class Upload extends Component {
-  
-  submitHandler = (e) => {
+    state = {
+      videoData: []
+    };
+
+  handleAddVideo = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:8080/videos', {
+        title: e.target.uploadsInputTitle.value,
+        description: e.target.uploadsInputDesc.value,
+        image: thumbnail,
+        channel: 'New Channel'
+    })
+    .then(res => {
       alert("Upload Successful! Click 'ok' to view your video.")
-      e.preventDefault()
       this.props.history.push('/');
       e.target.reset()
-    }
+      this.setState({
+        videoData: res.data
+      })
+    });
+  };
+
+  handleDeleteVideo = (e) => {
+    e.preventDefault();
+    this.props.history.push('/');
+  };
+
+
     render() {
       return (
       <section className="uploads">
@@ -17,7 +41,7 @@ export default class Upload extends Component {
             <h5 className="uploads__label">VIDEO THUMBNAIL</h5>
             <div className="uploads__thumbnail"></div>
           </label> 
-          <form onSubmit={this.submitHandler} className="uploads__form" id="uploadsForm" method="post" name="uploadsForm">
+          <form onSubmit={this.handleAddVideo} ref={form => this.form = form} className="uploads__form" id="uploadsForm" method="post" name="uploadsForm">
             <label htmlFor="uploadsInput">
               <h5 className="uploads__label">TITLE YOUR VIDEO</h5>
                 <input className="uploads__inputTitle" id="uploadsInputTitle" name="uploadsInputTitle" placeholder="Add a title to your video" required="" autoComplete="off" />
@@ -28,7 +52,7 @@ export default class Upload extends Component {
               </label> 
               <div className="uploads__border">         
                 <button className="uploads__button" id="uploadsBtn" type="submit">PUBLISH</button>
-                <button className="uploads__button uploads__button--delete" id="uploadsDeleteBtn" type="">CANCEL</button>
+                <button className="uploads__button uploads__button--delete" id="uploadsDeleteBtn" onClick={() => this.handleDeleteVideo(this.state.videoData.id)}>CANCEL</button>
               </div>
           </form>
         </div> 
