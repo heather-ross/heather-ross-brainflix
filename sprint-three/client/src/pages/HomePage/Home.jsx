@@ -6,7 +6,6 @@ import HeroVideo from '../../components/HeroVideo/HeroVideo';
 import VideoDetails from '../../components/VideoDetails/VideoDetails';
 import VideoList from '../../components/VideoList/VideoList';
 
-
 class Home extends React.Component {
     state = { 
         currentVideoId: null,
@@ -45,8 +44,19 @@ class Home extends React.Component {
   
     handleSubmit = (e) => {
       e.preventDefault();
-      e.target.reset()
-    }
+      let addComment = {name: "Heather Ross ", comment: e.target.commentInput.value};
+      axios.post(`http://localhost:8080/videos/${this.state.currentVideoId}/comments`,addComment)
+          .then(res => {
+            console.log(res)
+            this.setState({
+              currentVideoId: res.data
+            })
+          })  
+          .catch(err=>{
+            console.error(err);
+          }) 
+          e.target.reset()
+        }
     
     render() {
         return (

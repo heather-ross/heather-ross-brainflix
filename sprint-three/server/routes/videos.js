@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const uuid = require('uuid');
 const videoData = require('../data/videos.json');
+const comments = require('./comments');
 const videoRoute = express.Router();
 videoRoute.use(express.json());
 
@@ -44,25 +45,10 @@ videoRoute.post('/', (req, res) => {
             id: "1ab6d9f6-da38-456e-9b09-ab0acd9ce818",
             likes: 0,
             timestamp: 1545162149000
-            }, 
-            {
-            name: "Gary Wong",
-            comment: "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-            id: "cc6f173d-9e9d-4501-918d-bc11f15a8e14",
-            likes: 0,
-            timestamp: 1544595784046
-            }, 
-            {
-            name: "Theodore Duncan",
-            comment: "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-            id: "993f950f-df99-48e7-bd1e-d95003cc98f1",
-            likes: 0,
-            timestamp: 1542262984046
             }]
     });
     fs.writeFileSync('data/videos.json', JSON.stringify(videoData));
     res.json(videoData)
     })
-    
-    
+videoRoute.use('/:videoId/comments', comments);
 module.exports = videoRoute

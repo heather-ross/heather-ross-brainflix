@@ -5,8 +5,7 @@ function Comments({comments}) {
     
     return (
         <div className="comments__stream">  
-          {comments && comments.sort(function(x, y) {return y.timestamp - x.timestamp;})
-          .map(comment => { 
+          {comments && comments.sort(function(x, y) {return y.timestamp - x.timestamp;}).map(comment => { 
             const commentDate = new Date(comment.timestamp);
             return (
               <div className="comments__container" key={comment.id}>

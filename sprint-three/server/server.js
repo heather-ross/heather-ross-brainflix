@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const videos = require('./routes/videos');
-
 const port = process.env.PORT
 
 app.use(cors());
