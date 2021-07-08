@@ -1,0 +1,23 @@
+{
+  "name": "flix",
+  "version": "1.0.0",
+  "description": "Video streaming prototype school project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix client",
+    "start": "npm start --prefix server",
+    "server": "nodemon server --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heather-ross/heather-ross-brainflix.git"
+  },
+  "author": "Heather Ross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heather-ross/heather-ross-brainflix/issues"
+  },
+  "homepage": "https://hross.dev/projects/project-flix/"
+}
